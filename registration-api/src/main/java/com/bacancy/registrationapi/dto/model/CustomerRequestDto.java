@@ -1,6 +1,7 @@
 package com.bacancy.registrationapi.dto.model;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
 
@@ -27,6 +28,7 @@ public class CustomerRequestDto {
 	@NotNull
 	private String mobileNo;
 	@NotNull
+	@Max(150)
 	private int age;
 	@NotNull
 	private String gender;
