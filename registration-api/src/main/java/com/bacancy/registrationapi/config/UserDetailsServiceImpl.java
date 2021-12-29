@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.bacancy.registrationapi.entity.CustomerEntity;
-import com.bacancy.registrationapi.exception.CustomerNotFoundException;
 import com.bacancy.registrationapi.repository.CustomerRepository;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -24,7 +23,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		if(customer==null) {
 			throw new UsernameNotFoundException("User Not Found with email: "+email);
 		}
-		System.out.println(passwordEncoder.encode(customer.getPassword()));
 		return new CustomUserDetails(customer);
 	}
 
